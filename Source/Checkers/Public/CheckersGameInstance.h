@@ -13,5 +13,11 @@ UCLASS()
 class CHECKERS_API UCheckersGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
-	
+
+public:
+
+	virtual void Init() override;
+
+	UFUNCTION(BlueprintNativeEvent)
+	void BeginShowingLoadingScreen(const FString& MapName);
 };

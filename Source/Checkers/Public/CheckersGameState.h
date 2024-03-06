@@ -13,5 +13,8 @@ UCLASS()
 class CHECKERS_API ACheckersGameState : public AGameState
 {
 	GENERATED_BODY()
-	
+
+protected:
+
+	virtual void HandleLeavingMap() override;
 };
