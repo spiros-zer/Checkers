@@ -3,7 +3,7 @@
 
 #include "Player/CheckersPlayerController.h"
 
-#include "UI/MainMenu.h"
+#include "Blueprint/UserWidget.h"
 
 void ACheckersPlayerController::ShowLoadingScreen()
 {

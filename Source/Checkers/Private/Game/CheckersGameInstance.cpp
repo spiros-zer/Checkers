@@ -1,7 +1,7 @@
 // Copyright 2024 Spyridon Zervos
 
 
-#include "CheckersGameInstance.h"
+#include "Game/CheckersGameInstance.h"
 
 #include "Player/CheckersPlayerController.h"
 
