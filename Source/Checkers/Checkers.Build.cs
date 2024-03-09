@@ -8,12 +8,19 @@ public class Checkers : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "CommonUI"});
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "CommonUI", "CommonInput"});
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
+		// Using UMG
+		PublicDependencyModuleNames.AddRange(new string[] { "UMG", "CommonUI", "CommonInput"});
 
-		// Uncomment if you are using Slate UI
-		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
+		// Using Common UI
+		PublicDependencyModuleNames.AddRange(new string[] { "CommonUI", "CommonInput"});
+
+		// Using Enhanced Input
+		PrivateDependencyModuleNames.AddRange(new string[] { "EnhancedInput" });
+		
+		// Using Slate UI
+		PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
 		
 		// Uncomment if you are using online features
 		// PrivateDependencyModuleNames.Add("OnlineSubsystem");
