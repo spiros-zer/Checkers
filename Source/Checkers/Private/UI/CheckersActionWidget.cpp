@@ -23,7 +23,7 @@ FSlateBrush UCheckersActionWidget::GetIcon() const
 			return SlateBrush;
 		}
 	}
-	
+
 	return Super::GetIcon();
 }
 

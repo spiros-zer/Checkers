@@ -7,6 +7,7 @@
 #include "CheckersActionWidget.generated.h"
 
 class UEnhancedInputLocalPlayerSubsystem;
+class UInputAction;
 
 /**
  * 
