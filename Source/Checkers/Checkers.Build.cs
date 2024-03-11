@@ -15,6 +15,9 @@ public class Checkers : ModuleRules
 
 		// Using Common UI
 		PublicDependencyModuleNames.AddRange(new string[] { "CommonUI", "CommonInput"});
+		
+		// Using Gameplay Tags
+		PublicDependencyModuleNames.AddRange(new string[] { "GameplayTags"});
 
 		// Using Enhanced Input
 		PrivateDependencyModuleNames.AddRange(new string[] { "EnhancedInput" });
