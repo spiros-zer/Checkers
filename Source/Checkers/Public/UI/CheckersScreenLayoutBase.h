@@ -4,9 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "CommonUserWidget.h"
+#include "GameplayTagContainer.h"
 #include "CheckersScreenLayoutBase.generated.h"
 
-struct FGameplayTag;
+class UCommonActivatableWidget;
 class UCommonActivatableWidgetContainerBase;
 
 /**
@@ -16,6 +17,10 @@ UCLASS()
 class CHECKERS_API UCheckersScreenLayoutBase : public UCommonUserWidget
 {
 	GENERATED_BODY()
+
+public:
+
+	UCommonActivatableWidget* PushWidgetToLayer(UPARAM(meta = (Categories = "UI.Layer")) FGameplayTag LayerTag, TSubclassOf<UCommonActivatableWidget> ActivatableWidgetClass);
 
 protected:
 
