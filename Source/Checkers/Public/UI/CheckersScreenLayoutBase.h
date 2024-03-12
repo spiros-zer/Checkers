@@ -20,6 +20,7 @@ class CHECKERS_API UCheckersScreenLayoutBase : public UCommonUserWidget
 
 public:
 
+	UFUNCTION(BlueprintCallable)
 	UCommonActivatableWidget* PushWidgetToLayer(UPARAM(meta = (Categories = "UI.Layer")) FGameplayTag LayerTag, TSubclassOf<UCommonActivatableWidget> ActivatableWidgetClass);
 
 protected:
