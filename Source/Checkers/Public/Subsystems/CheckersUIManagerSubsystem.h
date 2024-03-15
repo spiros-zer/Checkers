@@ -12,21 +12,25 @@ class UCheckersScreenLayoutBase;
 /**
  * 
  */
-UCLASS()
-class CHECKERS_API UCheckersUIManagerSubsystem : public UGameInstanceSubsystem
+UCLASS(Config = Game)
+class CHECKERS_API UCheckersUIManagerSubsystem : public ULocalPlayerSubsystem
 {
 	GENERATED_BODY()
 
 public:
 
-	UFUNCTION(BlueprintCallable, BlueprintGetter)
-	UCheckersScreenLayoutBase* GetScreenLayout() const {return ScreenLayout;}
+	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 
-	UFUNCTION(BlueprintCallable, BlueprintSetter)
-	void SetScreenLayout(UCheckersScreenLayoutBase* InScreenLayout) {ScreenLayout = InScreenLayout;}
+	virtual void Deinitialize() override;
 
-protected:
+	UFUNCTION(BlueprintGetter)
+	UCheckersScreenLayoutBase* GetScreenLayout() const {return ScreenLayoutBase;}
+	
+private:
 
-	UPROPERTY(EditDefaultsOnly, BlueprintGetter = "GetScreenLayout", BlueprintSetter = "SetScreenLayout")
-	TObjectPtr<UCheckersScreenLayoutBase> ScreenLayout {};
+	UPROPERTY(BlueprintGetter = "GetScreenLayout")
+	TObjectPtr<UCheckersScreenLayoutBase> ScreenLayoutBase{};
+
+	UPROPERTY(Config)
+	TSoftClassPtr<UCheckersScreenLayoutBase> ScreenLayoutBaseClass{};
 };
