@@ -14,4 +14,12 @@ UCLASS(Abstract, BlueprintType, Blueprintable)
 class CHECKERS_API UCheckersButtonBase : public UCommonButtonBase
 {
 	GENERATED_BODY()
+
+public:
+	
+	UFUNCTION(BlueprintCallable)
+	void SetButtonTextInternal(const FText& InText);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateButtonText(const FText& InText);
 };

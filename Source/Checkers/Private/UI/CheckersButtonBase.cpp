@@ -2,3 +2,8 @@
 
 
 #include "UI/CheckersButtonBase.h"
+
+void UCheckersButtonBase::SetButtonTextInternal(const FText& InText)
+{
+	UpdateButtonText(InText);
+}
