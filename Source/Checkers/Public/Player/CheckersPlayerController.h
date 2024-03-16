@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "CheckersPlayerController.generated.h"
 
+class UCheckersScreenLayoutBase;
 class UMainMenu;
 
 /**
@@ -20,6 +21,17 @@ public:
 	
 	void ShowLoadingScreen();
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "ScreenLayout")
+	TObjectPtr<UCheckersScreenLayoutBase> ScreenLayout{};
+	
+protected:
+
+	UFUNCTION(BlueprintNativeEvent)
+	UCheckersScreenLayoutBase* CreateAndShowScreenLayout();	
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "ScreenLayout")
+	TSubclassOf<UCheckersScreenLayoutBase> ScreenLayoutClass{};
+	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TSubclassOf<class UUserWidget> LoadingScreenClass;
+	TSubclassOf<UUserWidget> LoadingScreenClass{};
 };

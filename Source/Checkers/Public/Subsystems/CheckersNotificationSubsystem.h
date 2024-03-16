@@ -3,18 +3,30 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Subsystems/LocalPlayerSubsystem.h"
+#include "NotificationSubsystem.h"
 #include "CheckersNotificationSubsystem.generated.h"
+
+class UNotification;
 
 /**
  * 
  */
-UCLASS()
-class CHECKERS_API UCheckersNotificationSubsystem : public ULocalPlayerSubsystem
+UCLASS(Config = Game)
+class CHECKERS_API UCheckersNotificationSubsystem : public UNotificationSubsystem
 {
 	GENERATED_BODY()
 
+public:
+
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 
+	virtual void ShowNotification(UNotificationType* NotificationType, FNotificationActionDelegate ResultCallback = FNotificationActionDelegate()) override;
 	
+private:
+	
+	UPROPERTY()
+	TSubclassOf<UNotification> NotificationClassPtr;
+
+	UPROPERTY(config)
+	TSoftClassPtr<UNotification> NotificationClass;
 };

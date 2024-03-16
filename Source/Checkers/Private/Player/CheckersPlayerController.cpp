@@ -16,3 +16,9 @@ void ACheckersPlayerController::ShowLoadingScreen()
 		}
 	}
 }
+
+UCheckersScreenLayoutBase* ACheckersPlayerController::CreateAndShowScreenLayout_Implementation()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, FString::Printf(TEXT("CheckersPlayerController | %s: Should override this."), *FString(__FUNCTION__)));
+	return nullptr;
+}
