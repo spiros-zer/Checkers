@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright 2024 Spyridon Zervos
 
 using UnrealBuildTool;
 
@@ -8,22 +8,31 @@ public class Checkers : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "CommonUI", "CommonInput"});
-
-		// Using UMG
-		PublicDependencyModuleNames.AddRange(new string[] { "UMG", "CommonUI", "CommonInput"});
-
-		// Using Common UI
-		PublicDependencyModuleNames.AddRange(new string[] { "CommonUI", "CommonInput"});
+		PublicDependencyModuleNames.AddRange(new string[]
+		{
+			// Core
+			"Core", 
+			"CoreUObject", 
+			"Engine", 
+			"InputCore", 
+			// UMG
+			"UMG", 
+			// Common UI
+			"CommonUI", 
+			"CommonInput",
+			"CommonNotificationSubsystem",
+			// Gameplay Tags
+			"GameplayTags",
+		});
 		
-		// Using Gameplay Tags
-		PublicDependencyModuleNames.AddRange(new string[] { "GameplayTags"});
-
-		// Using Enhanced Input
-		PrivateDependencyModuleNames.AddRange(new string[] { "EnhancedInput" });
-		
-		// Using Slate UI
-		PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
+		PrivateDependencyModuleNames.AddRange(new string[]
+		{
+			// Using Enhanced Input
+			"EnhancedInput", 
+			// Using Slate UI
+			"Slate",
+			"SlateCore"
+		});
 		
 		// Uncomment if you are using online features
 		// PrivateDependencyModuleNames.Add("OnlineSubsystem");
