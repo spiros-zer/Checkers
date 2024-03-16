@@ -3,7 +3,6 @@
 
 #include "UI/CheckersScreenLayoutBase.h"
 
-#include "Widgets/CommonActivatableWidgetContainer.h"
 #include "CommonActivatableWidget.h"
 
 UCommonActivatableWidget* UCheckersScreenLayoutBase::PushWidgetToLayer(FGameplayTag LayerTag, TSubclassOf<UCommonActivatableWidget> ActivatableWidgetClass)

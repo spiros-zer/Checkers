@@ -5,10 +5,10 @@
 #include "CoreMinimal.h"
 #include "CommonUserWidget.h"
 #include "GameplayTagContainer.h"
+#include "Widgets/CommonActivatableWidgetContainer.h"
 #include "CheckersScreenLayoutBase.generated.h"
 
 class UCommonActivatableWidget;
-class UCommonActivatableWidgetContainerBase;
 
 /**
  * The base layout of the player screen. 
@@ -22,6 +22,20 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	UCommonActivatableWidget* PushWidgetToLayer(UPARAM(meta = (Categories = "UI.Layer")) FGameplayTag LayerTag, TSubclassOf<UCommonActivatableWidget> ActivatableWidgetClass);
+
+	template <typename ActivatableWidgetT = UCommonActivatableWidget>
+	ActivatableWidgetT* PushWidgetToLayer(FGameplayTag LayerTag, UClass* ActivatableWidgetClass, TFunctionRef<void(ActivatableWidgetT&)> InitInstanceFunc)
+	{
+		static_assert(TIsDerivedFrom<ActivatableWidgetT, UCommonActivatableWidget>::IsDerived, "Only CommonActivatableWidgets can be used here");
+
+		if (UCommonActivatableWidgetContainerBase* Layer = Layers.FindRef(LayerTag))
+		{
+			return Layer->AddWidget<ActivatableWidgetT>(ActivatableWidgetClass, InitInstanceFunc);
+		}
+
+		return nullptr;
+	}
+
 
 protected:
 
