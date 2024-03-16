@@ -1,0 +1,23 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "CommonNotificationSubsystem",
+	"Description": "A notification system to add a notification to the player's screen. Must be used together with the screen layout system",
+	"Category": "Other",
+	"CreatedBy": "Spyridon Zervos",
+	"CreatedByURL": "https://github.com/spiros-zer",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Plugins": [
+		{
+			"Name": "CommonUI",
+			"Enabled": true
+		}
+	]
+}
