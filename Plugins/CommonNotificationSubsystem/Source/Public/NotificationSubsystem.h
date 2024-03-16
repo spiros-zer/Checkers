@@ -36,7 +36,7 @@ public:
 	
 	virtual void Deinitialize() override;
 
-	virtual void ShowNotification(UNotificationType* DialogDescriptor, FNotificationActionDelegate ResultCallback = FNotificationActionDelegate());
+	virtual void ShowNotification(UNotificationType* NotificationType, FNotificationActionDelegate ResultCallback = FNotificationActionDelegate());
 };
 
 inline void UNotificationSubsystem::Initialize(FSubsystemCollectionBase& Collection)
@@ -49,7 +49,7 @@ inline void UNotificationSubsystem::Deinitialize()
 	Super::Deinitialize();
 }
 
-inline void UNotificationSubsystem::ShowNotification(UNotificationType* DialogDescriptor,
+inline void UNotificationSubsystem::ShowNotification(UNotificationType* NotificationType,
 	FNotificationActionDelegate ResultCallback)
 {
 }

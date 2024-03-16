@@ -18,15 +18,15 @@ class COMMONNOTIFICATIONSUBSYSTEM_API UNotification : public UCommonActivatableW
 
 public:
 	
-	virtual void SetupDialog(UNotificationType* UNotificationType, FNotificationActionDelegate ResultCallback);
+	virtual void SetupNotification(UNotificationType* UNotificationType, FNotificationActionDelegate ResultCallback);
 
-	virtual void KillDialog();
+	virtual void KillNotification();
 };
 
-inline void UNotification::SetupDialog(UNotificationType* UNotificationType, FNotificationActionDelegate ResultCallback)
+inline void UNotification::SetupNotification(UNotificationType* UNotificationType, FNotificationActionDelegate ResultCallback)
 {
 }
 
-inline void UNotification::KillDialog()
+inline void UNotification::KillNotification()
 {
 }
