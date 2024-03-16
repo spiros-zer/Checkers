@@ -1,0 +1,49 @@
+﻿// Copyright 2024 Spyridon Zervos
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "NotificationSubsystem.h"
+#include "UObject/Object.h"
+#include "NotificationType.generated.h"
+
+USTRUCT(BlueprintType)
+struct FNotificationContext
+{
+	GENERATED_BODY()
+	
+	/** Required: The dialog option to provide. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ENotificationAction Result = ENotificationAction::Unknown;
+
+	bool operator==(const FNotificationContext& Other) const
+	{
+		return Result == Other.Result;
+	}
+};
+
+/**
+ * 
+ */
+UCLASS()
+class COMMONNOTIFICATIONSUBSYSTEM_API UNotificationType : public UObject
+{
+	GENERATED_BODY()
+
+public:
+	
+	static UNotificationType* CreateNotificationSingle(const FText& InTitle, const FText& InContent);
+	static UNotificationType* CreateNotificationDouble(const FText& InTitle, const FText& InContent);
+
+	/** The header of the message to display */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FText Title;
+	
+	/** The body of the message to display */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FText Body;
+
+	/** The confirm button's input action to use. */
+	UPROPERTY(BlueprintReadWrite)
+	TArray<FNotificationContext> ButtonsContext;
+};
