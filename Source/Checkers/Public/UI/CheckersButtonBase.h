@@ -20,6 +20,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetButtonTextInternal(const FText& InText);
 
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void UpdateButtonText(const FText& InText);
 };
