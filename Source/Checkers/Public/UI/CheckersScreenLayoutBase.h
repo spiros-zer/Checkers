@@ -28,9 +28,12 @@ public:
 	{
 		static_assert(TIsDerivedFrom<ActivatableWidgetT, UCommonActivatableWidget>::IsDerived, "Only CommonActivatableWidgets can be used here");
 
-		if (UCommonActivatableWidgetContainerBase* Layer = Layers.FindRef(LayerTag))
+		if (LayerTag.IsValid())
 		{
-			return Layer->AddWidget<ActivatableWidgetT>(ActivatableWidgetClass, InitInstanceFunc);
+			if (UCommonActivatableWidgetContainerBase* Layer = Layers.FindRef(LayerTag))
+			{
+				return Layer->AddWidget<ActivatableWidgetT>(ActivatableWidgetClass, InitInstanceFunc);
+			}
 		}
 
 		return nullptr;

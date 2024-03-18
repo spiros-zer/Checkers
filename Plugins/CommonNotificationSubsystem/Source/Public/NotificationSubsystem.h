@@ -32,24 +32,11 @@ class COMMONNOTIFICATIONSUBSYSTEM_API UNotificationSubsystem : public ULocalPlay
 	
 public:
 
+	UNotificationSubsystem() {}
+
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	
 	virtual void Deinitialize() override;
 
 	virtual void ShowNotification(UNotificationType* NotificationType, FNotificationActionDelegate ResultCallback = FNotificationActionDelegate());
 };
-
-inline void UNotificationSubsystem::Initialize(FSubsystemCollectionBase& Collection)
-{
-	Super::Initialize(Collection);
-}
-
-inline void UNotificationSubsystem::Deinitialize()
-{
-	Super::Deinitialize();
-}
-
-inline void UNotificationSubsystem::ShowNotification(UNotificationType* NotificationType,
-	FNotificationActionDelegate ResultCallback)
-{
-}

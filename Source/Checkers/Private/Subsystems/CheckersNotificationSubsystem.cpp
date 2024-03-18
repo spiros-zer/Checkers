@@ -8,30 +8,25 @@
 #include "UI/CheckersScreenLayoutBase.h"
 #include "NativeGameplayTags.h"
 
-UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_UI_LAYER_SYSTEM, "UI.Layer.System");
+UE_DEFINE_GAMEPLAY_TAG(TAG_UI_LAYERS_SYSTEM, "UI.Layers.System");
 
 void UCheckersNotificationSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
 	Super::Initialize(Collection);
 
-	if (NotificationClass)
-	{
-		NotificationClassPtr = NotificationClass.LoadSynchronous();
-	}
+	NotificationClassPtr = NotificationClass.LoadSynchronous();
 }
 
 void UCheckersNotificationSubsystem::ShowNotification(UNotificationType* NotificationType,
 	FNotificationActionDelegate ResultCallback)
 {
-	Super::ShowNotification(NotificationType, ResultCallback);
-
 	if (ULocalPlayer* LocalPlayer = GetLocalPlayer())
 	{
 		if (AController* PlayerController = LocalPlayer->GetPlayerController(GetWorld()))
 		{
-			if (ACheckersPlayerController* CheckersPlayerController = Cast<ACheckersPlayerController>(PlayerController))
+			if (const ACheckersPlayerController* CheckersPlayerController = Cast<ACheckersPlayerController>(PlayerController))
 			{
-				CheckersPlayerController->ScreenLayout->PushWidgetToLayer<UNotification>(TAG_UI_LAYER_SYSTEM, NotificationClassPtr, [NotificationType, ResultCallback](UNotification& Notification)
+				CheckersPlayerController->ScreenLayout->PushWidgetToLayer<UNotification>(TAG_UI_LAYERS_SYSTEM, NotificationClassPtr, [NotificationType, ResultCallback](UNotification& Notification)
 				{
 					Notification.SetupNotification(NotificationType, ResultCallback);
 				});

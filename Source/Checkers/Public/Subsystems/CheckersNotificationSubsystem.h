@@ -18,6 +18,8 @@ class CHECKERS_API UCheckersNotificationSubsystem : public UNotificationSubsyste
 
 public:
 
+	UCheckersNotificationSubsystem() {}
+
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 
 	virtual void ShowNotification(UNotificationType* NotificationType, FNotificationActionDelegate ResultCallback = FNotificationActionDelegate()) override;
