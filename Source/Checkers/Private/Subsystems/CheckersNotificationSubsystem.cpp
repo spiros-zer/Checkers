@@ -15,12 +15,13 @@ void UCheckersNotificationSubsystem::Initialize(FSubsystemCollectionBase& Collec
 	Super::Initialize(Collection);
 
 	NotificationClassPtr = NotificationClass.LoadSynchronous();
+	// TODO add check that NotificationClassPtr is valid
 }
 
 void UCheckersNotificationSubsystem::ShowNotification(UNotificationType* NotificationType,
 	FNotificationActionDelegate ResultCallback)
 {
-	if (ULocalPlayer* LocalPlayer = GetLocalPlayer())
+	if (const ULocalPlayer* LocalPlayer = GetLocalPlayer())
 	{
 		if (AController* PlayerController = LocalPlayer->GetPlayerController(GetWorld()))
 		{
