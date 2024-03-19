@@ -1,11 +1,10 @@
 ﻿// Copyright 2024 Spyridon Zervos
 
 
-#include "Actions/DisplayNotificationAsyncAction.h"
+#include "DisplayNotificationAsyncAction.h"
 
 #include "NotificationType.h"
 #include "Blueprint/UserWidget.h"
-#include "Subsystems/CheckersNotificationSubsystem.h"
 
 UDisplayNotificationAsyncAction* UDisplayNotificationAsyncAction::ShowNotification(UObject* InWorldContextObject, FText InTitle, FText InBody, FText InActionText)
 {
@@ -42,7 +41,7 @@ void UDisplayNotificationAsyncAction::Activate()
 
 	if (TargetLocalPlayer)
 	{
-		if (UCheckersNotificationSubsystem* Messaging = TargetLocalPlayer->GetSubsystem<UCheckersNotificationSubsystem>())
+		if (UNotificationSubsystem* Messaging = TargetLocalPlayer->GetSubsystem<UNotificationSubsystem>())
 		{
 			FNotificationActionDelegate ResultCallback = FNotificationActionDelegate::CreateUObject(this, &ThisClass::HandleConfirmationResult);
 			Messaging->ShowNotification(Descriptor, ResultCallback);

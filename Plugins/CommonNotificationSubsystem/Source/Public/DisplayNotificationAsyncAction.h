@@ -15,7 +15,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FNotificationActionDelegateMC, ENoti
  * 
  */
 UCLASS()
-class CHECKERS_API UDisplayNotificationAsyncAction : public UBlueprintAsyncActionBase
+class COMMONNOTIFICATIONSUBSYSTEM_API UDisplayNotificationAsyncAction : public UBlueprintAsyncActionBase
 {
 	GENERATED_BODY()
 
