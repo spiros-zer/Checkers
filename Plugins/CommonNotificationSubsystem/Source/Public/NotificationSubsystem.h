@@ -34,6 +34,9 @@ public:
 
 	UNotificationSubsystem() {}
 
+	/** Allows this subsystem to be created or not depending if there are derived classes or not. TODO see if abstract in UCLASS has the same effect */
+	virtual bool ShouldCreateSubsystem(UObject* Outer) const override;
+
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	
 	virtual void Deinitialize() override;
