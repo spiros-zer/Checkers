@@ -25,13 +25,13 @@ protected:
 
 	virtual void CloseConfirmationWindow(ENotificationAction Action);
 
-	UPROPERTY(Meta = (BindWidget))
+	UPROPERTY(BlueprintReadOnly, Meta = (BindWidget))
 	TObjectPtr<UCommonTextBlock> Title;
 
-	UPROPERTY(Meta = (BindWidget))
+	UPROPERTY(BlueprintReadOnly,Meta = (BindWidget))
 	TObjectPtr<UCommonRichTextBlock> Content;
 
-	UPROPERTY(Meta = (BindWidget))
+	UPROPERTY(BlueprintReadOnly, Meta = (BindWidget))
 	TObjectPtr<UDynamicEntryBox> EntryBox_Buttons;
 
 	UPROPERTY(EditDefaultsOnly, meta = (RowType = "/Script/CommonUI.CommonInputActionDataBase"))

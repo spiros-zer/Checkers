@@ -18,7 +18,8 @@ UNotificationType* UNotificationType::CreateNotificationSingle(const FText& InTi
 	return NotificationType;
 }
 
-UNotificationType* UNotificationType::CreateNotificationDouble(const FText& InTitle, const FText& InContent, TArray<FText> InActionTexts)
+UNotificationType* UNotificationType::CreateNotificationDouble(const FText& InTitle, const FText& InContent,
+	const FText& InActionLeftText, const FText& InActionRightText)
 {
 	UNotificationType* NotificationType = NewObject<UNotificationType>();
 	NotificationType->Title = InTitle;
@@ -26,11 +27,11 @@ UNotificationType* UNotificationType::CreateNotificationDouble(const FText& InTi
 
 	FNotificationContext NotificationContextAffirmative;
 	NotificationContextAffirmative.Result = ENotificationAction::Affirmative;
-	NotificationContextAffirmative.ActionText = InActionTexts[0];
+	NotificationContextAffirmative.ActionText = InActionLeftText;
 
 	FNotificationContext NotificationContextNegative;
 	NotificationContextNegative.Result = ENotificationAction::Cancelled;
-	NotificationContextNegative.ActionText = InActionTexts[1];
+	NotificationContextNegative.ActionText = InActionRightText;
 
 	NotificationType->ButtonsContext.Add(NotificationContextAffirmative);
 	NotificationType->ButtonsContext.Add(NotificationContextNegative);

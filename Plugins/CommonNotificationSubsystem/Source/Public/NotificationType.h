@@ -39,7 +39,7 @@ public:
 	
 	static UNotificationType* CreateNotificationSingle(const FText& InTitle, const FText& InContent, const FText& InActionText);
 	
-	static UNotificationType* CreateNotificationDouble(const FText& InTitle, const FText& InContent, TArray<FText> InActionTexts);
+	static UNotificationType* CreateNotificationDouble(const FText& InTitle, const FText& InContent, const FText& InActionLeftText, const FText& InActionRightText);
 
 	/** The header of the message to display */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

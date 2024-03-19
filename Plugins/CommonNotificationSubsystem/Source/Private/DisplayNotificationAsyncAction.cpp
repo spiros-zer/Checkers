@@ -6,11 +6,45 @@
 #include "NotificationType.h"
 #include "Blueprint/UserWidget.h"
 
-UDisplayNotificationAsyncAction* UDisplayNotificationAsyncAction::ShowNotification(UObject* InWorldContextObject, FText InTitle, FText InBody, FText InActionText)
+UDisplayNotificationAsyncAction* UDisplayNotificationAsyncAction::ShowNotification(UObject* InWorldContextObject,
+	const FText InTitle, const FText InBody)
+{
+	UDisplayNotificationAsyncAction* Action = NewObject<UDisplayNotificationAsyncAction>();
+	Action->WorldContextObject = InWorldContextObject;
+	Action->Descriptor = UNotificationType::CreateNotificationSingle(InTitle, InBody, FText::FromString("Ok"));
+	Action->RegisterWithGameInstance(InWorldContextObject);
+
+	return Action;
+}
+
+UDisplayNotificationAsyncAction* UDisplayNotificationAsyncAction::ShowNotificationAcknowledgement(
+	UObject* InWorldContextObject, const FText InTitle, const FText InBody)
+{
+	UDisplayNotificationAsyncAction* Action = NewObject<UDisplayNotificationAsyncAction>();
+	Action->WorldContextObject = InWorldContextObject;
+	Action->Descriptor = UNotificationType::CreateNotificationSingle(InTitle, InBody, FText::FromString("Ok"));
+	Action->RegisterWithGameInstance(InWorldContextObject);
+
+	return Action;
+}
+
+UDisplayNotificationAsyncAction* UDisplayNotificationAsyncAction::ShowNotificationSingle(UObject* InWorldContextObject,
+	FText InTitle, FText InBody, FText InActionText)
 {
 	UDisplayNotificationAsyncAction* Action = NewObject<UDisplayNotificationAsyncAction>();
 	Action->WorldContextObject = InWorldContextObject;
 	Action->Descriptor = UNotificationType::CreateNotificationSingle(InTitle, InBody, InActionText);
+	Action->RegisterWithGameInstance(InWorldContextObject);
+
+	return Action;
+}
+
+UDisplayNotificationAsyncAction* UDisplayNotificationAsyncAction::ShowNotificationDual(UObject* InWorldContextObject,
+	FText InTitle, FText InBody, FText InActionLeftText, FText InActionRightText)
+{
+	UDisplayNotificationAsyncAction* Action = NewObject<UDisplayNotificationAsyncAction>();
+	Action->WorldContextObject = InWorldContextObject;
+	Action->Descriptor = UNotificationType::CreateNotificationDouble(InTitle, InBody, InActionLeftText, InActionRightText);
 	Action->RegisterWithGameInstance(InWorldContextObject);
 
 	return Action;

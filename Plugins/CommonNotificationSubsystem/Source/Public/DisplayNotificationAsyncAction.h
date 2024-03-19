@@ -22,7 +22,16 @@ class COMMONNOTIFICATIONSUBSYSTEM_API UDisplayNotificationAsyncAction : public U
 public:
 
 	UFUNCTION(BlueprintCallable, BlueprintCosmetic, meta = (BlueprintInternalUseOnly = "true", WorldContext = "InWorldContextObject"))
-	static UDisplayNotificationAsyncAction* ShowNotification(UObject* InWorldContextObject, FText InTitle, FText InBody, FText InActionText);
+	static UDisplayNotificationAsyncAction* ShowNotification(UObject* InWorldContextObject, const FText InTitle, const FText InBody);
+
+	UFUNCTION(BlueprintCallable, BlueprintCosmetic, meta = (BlueprintInternalUseOnly = "true", WorldContext = "InWorldContextObject"))
+	static UDisplayNotificationAsyncAction* ShowNotificationAcknowledgement(UObject* InWorldContextObject, FText InTitle, FText InBody);
+
+	UFUNCTION(BlueprintCallable, BlueprintCosmetic, meta = (BlueprintInternalUseOnly = "true", WorldContext = "InWorldContextObject"))
+	static UDisplayNotificationAsyncAction* ShowNotificationSingle(UObject* InWorldContextObject, FText InTitle, FText InBody, FText InActionText);
+	
+	UFUNCTION(BlueprintCallable, BlueprintCosmetic, meta = (BlueprintInternalUseOnly = "true", WorldContext = "InWorldContextObject"))
+	static UDisplayNotificationAsyncAction* ShowNotificationDual(UObject* InWorldContextObject, FText InTitle, FText InBody, FText InActionLeftText, FText InActionRightText);
 	
 	virtual void Activate() override;
 	
