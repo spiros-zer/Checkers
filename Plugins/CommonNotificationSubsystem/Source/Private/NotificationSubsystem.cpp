@@ -3,7 +3,7 @@
 
 #include "NotificationSubsystem.h"
 
-bool UNotificationSubsystem::ShouldCreateSubsystem(UObject* Outer) const
+/*bool UNotificationSubsystem::ShouldCreateSubsystem(UObject* Outer) const
 {
 	if (!CastChecked<ULocalPlayer>(Outer)->GetGameInstance()->IsDedicatedServerInstance())
 	{
@@ -14,7 +14,7 @@ bool UNotificationSubsystem::ShouldCreateSubsystem(UObject* Outer) const
 		return ChildClasses.Num() == 0;
 	}
 	return false;
-}
+}*/
 
 void UNotificationSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {

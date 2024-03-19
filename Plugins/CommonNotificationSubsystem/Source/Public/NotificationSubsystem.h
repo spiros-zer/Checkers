@@ -25,7 +25,7 @@ DECLARE_DELEGATE_OneParam(FNotificationActionDelegate, ENotificationAction);
  * Subsystem responsible for displaying notifications. You need to subclass from this and override the ShowNotification()
  * to work properly.
  */
-UCLASS()
+UCLASS(Abstract)
 class COMMONNOTIFICATIONSUBSYSTEM_API UNotificationSubsystem : public ULocalPlayerSubsystem
 {
 	GENERATED_BODY()
@@ -34,8 +34,9 @@ public:
 
 	UNotificationSubsystem() {}
 
-	/** Allows this subsystem to be created or not depending if there are derived classes or not. TODO see if abstract in UCLASS has the same effect */
-	virtual bool ShouldCreateSubsystem(UObject* Outer) const override;
+	/** Allows this subsystem to be created or not depending if there are derived classes or not. Can be used instead
+	 * of UCLASS(Abstract). In this scenario I will be using Abstract so consider this obsolete and to be removed */
+	//virtual bool ShouldCreateSubsystem(UObject* Outer) const override;
 
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	
