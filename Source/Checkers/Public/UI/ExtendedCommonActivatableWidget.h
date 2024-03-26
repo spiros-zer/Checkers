@@ -7,6 +7,7 @@
 #include "ExtendedCommonActivatableWidget.generated.h"
 
 class UInputAction;
+
 DECLARE_DYNAMIC_DELEGATE_OneParam(FInputActionExecutedDelegate, FName, ActionName);
 
 USTRUCT(BlueprintType)

@@ -3,8 +3,6 @@
 
 #include "UI/ExtendedCommonActivatableWidget.h"
 
-#include "EnhancedInputComponent.h"
-#include "ICommonInputModule.h"
 #include "Input/CommonUIInputTypes.h"
 
 void UExtendedCommonActivatableWidget::NativeDestruct()
