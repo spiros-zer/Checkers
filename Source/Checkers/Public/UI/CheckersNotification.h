@@ -6,11 +6,13 @@
 #include "Notification.h"
 #include "CheckersNotification.generated.h"
 
+class UCommonButtonStyle;
 class UDynamicEntryBox;
 class UCommonRichTextBlock;
 class UCommonTextBlock;
+
 /**
- * 
+ * The notification base class of checkers.
  */
 UCLASS()
 class CHECKERS_API UCheckersNotification : public UNotification
@@ -23,19 +25,24 @@ public:
 	
 protected:
 
+	/** Called when any of the entry box's buttons are clicked. */
 	virtual void CloseConfirmationWindow(ENotificationAction Action);
 
-	UPROPERTY(BlueprintReadOnly, Meta = (BindWidget))
-	TObjectPtr<UCommonTextBlock> Title;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	TObjectPtr<UCommonTextBlock> Title{};
 
-	UPROPERTY(BlueprintReadOnly,Meta = (BindWidget))
-	TObjectPtr<UCommonRichTextBlock> Content;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	TObjectPtr<UCommonRichTextBlock> Content{};
 
-	UPROPERTY(BlueprintReadOnly, Meta = (BindWidget))
-	TObjectPtr<UDynamicEntryBox> EntryBox_Buttons;
+	/** Holds the notification's button(s). */
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	TObjectPtr<UDynamicEntryBox> EntryBox{};
 
-	UPROPERTY(EditDefaultsOnly, meta = (RowType = "/Script/CommonUI.CommonInputActionDataBase"))
-	FDataTableRowHandle CancelAction;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "NotificationCosmetics|Buttons")
+	TSubclassOf<UCommonButtonStyle> AffirmativeStyle{};
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "NotificationCosmetics|Buttons")
+	TSubclassOf<UCommonButtonStyle> NegativeStyle{};
 	
-	FNotificationActionDelegate OnResultCallback;
+	FNotificationActionDelegate OnResultCallback{};
 };
