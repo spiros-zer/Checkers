@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CommonButtonBase.h"
+#include "Interfaces/ButtonCosmetics.h"
 
 #include "CheckersButtonBase.generated.h"
 
@@ -11,7 +12,7 @@
  * The base button of the project.
  */
 UCLASS(Abstract, BlueprintType, Blueprintable)
-class CHECKERS_API UCheckersButtonBase : public UCommonButtonBase
+class CHECKERS_API UCheckersButtonBase : public UCommonButtonBase, public IButtonCosmetics
 {
 	GENERATED_BODY()
 

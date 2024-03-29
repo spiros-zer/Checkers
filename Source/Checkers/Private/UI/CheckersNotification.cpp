@@ -8,6 +8,7 @@
 #include "ICommonInputModule.h"
 #include "NotificationType.h"
 #include "Components/DynamicEntryBox.h"
+#include "Interfaces/ButtonCosmetics.h"
 #include "UI/CheckersButtonBase.h"
 
 void UCheckersNotification::SetupNotification(UNotificationType* UNotificationType, FNotificationActionDelegate ResultCallback)
@@ -53,6 +54,11 @@ void UCheckersNotification::SetupNotification(UNotificationType* UNotificationTy
 		if (Action.Result == ENotificationAction::Negative && NegativeStyle)
 		{
 			Button->SetStyle(NegativeStyle);
+		}
+		
+		if (IButtonCosmetics* CosmeticButton = Cast<IButtonCosmetics>(Button))
+		{
+			CosmeticButton->Execute_SetBtnTxtStyle(Button, Button->GetCurrentTextStyle()->GetClass());
 		}
 	}
 

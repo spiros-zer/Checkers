@@ -7,7 +7,7 @@
 class UCommonTextStyle;
 
 /**
- * 
+ * Interface responsible for cosmetic events regarding the buttons.
  */
 UINTERFACE(MinimalAPI, meta = (Blueprintable))
 class UButtonCosmetics : public UInterface
@@ -21,9 +21,12 @@ class IButtonCosmetics
 
 public:
 
+	/** Sets the button's text style. this is implemented due to the fact that if a text style is defined in the button
+	 * style it will still not be applied on its own. */
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category="Text")
 	void SetBtnTxtStyle(TSubclassOf<UCommonTextStyle> InTxtStyle);
 
-	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category="Text")
+	/** Sets the button text to the input value */
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category="Text", meta = (AutoCreateRefTerm="FText"))
 	void SetBtnTxt(const FText& InText);
 };
