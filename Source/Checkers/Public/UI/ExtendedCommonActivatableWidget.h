@@ -17,8 +17,10 @@ struct FInputActionBindingHandle
 	
 	FUIActionBindingHandle Handle;
 };
+
 /**
- * 
+ * An extended activatable widget offers the ability to add more actions displayed in the back handler action bar. This
+ * is done by using one of the register binding functions to register an input action.
  */
 UCLASS(meta = (DisableNativeTick))
 class CHECKERS_API UExtendedCommonActivatableWidget : public UCommonActivatableWidget
@@ -29,15 +31,20 @@ protected:
 	
 	virtual void NativeDestruct() override;
 
+	/** Deprecated since in its current state it produces error invalid input action row provided. Don't have plans to
+	 * fix it currently. */
 	UFUNCTION(BlueprintCallable, Category = ExtendedActivatableWidget, meta = (DeprecatedFunction))
 	void RegisterBindingWithDataTable(FDataTableRowHandle InputAction, const FInputActionExecutedDelegate& Callback, FInputActionBindingHandle& BindingHandle);
 
-	UFUNCTION(BlueprintCallable, Category = ExtendedActivatableWidget, meta = (DeprecatedFunction))
+	/** Registers an Input Action to be displayed in the action bar of the widget if any is present. If the the action is
+	 * pressed then the callback set in the blueprint event of this will be executed. */
+	UFUNCTION(BlueprintCallable, Category = ExtendedActivatableWidget)
 	void RegisterBindingWithAction(UInputAction* InputAction, const FInputActionExecutedDelegate& Callback, FInputActionBindingHandle& BindingHandle);
 
 	void OnExecuteInputAction();
 	
-	/** Registers an Input Action to be displayed in the action bar of the widget if any is present. */
+	/** Registers an Input Action to be displayed in the action bar of the widget if any is present. If the the action is
+	 * pressed then the OnExecuteInputAction() will fire. */
 	UFUNCTION(BlueprintCallable, Category = ExtendedActivatableWidget)
 	void RegisterBinding(UInputAction* InputAction, FInputActionBindingHandle& BindingHandle);
 	
