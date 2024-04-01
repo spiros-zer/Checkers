@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "CommonLoadingScreen",
+	"Description": "A plugin for setting up and using loading screen when necessary",
+	"Category": "Other",
+	"CreatedBy": "Spyridon Zervos",
+	"CreatedByURL": "https://github.com/spiros-zer",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "CommonLoadingScreen",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
