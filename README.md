@@ -1,13 +1,9 @@
-<section class="section-title">
-  <h1>Checkers</h1>
-  <p>A UE5 implementation of the checkers game. Play online or locally with AI./p>
-</section>
+# Checkers
+A testbed that started as a would be checkers game but ended up being the test bed for various Unreal technologies. 
 
-<section class="section-contents">
-  <h2>Contents</h2>
-  <ul>
-    <li><a href="Documentation/UI.md">UI</a></li>
-    <li><a href="Documentation/Networking.md">Networking</a></li>
-    <li><a href="Documentation/Geometry.md">Arena creation through Geometry Scripting</a></li>
-  </ul>
-</section>
+## Implementations
+- Screen Layout as per Lyra
+- Virtual Keyboard
+- Seamless keyboard mouse to controller integration
+
+The last bit has been the main implementation, this and in general combining enhanced input and common input together.
